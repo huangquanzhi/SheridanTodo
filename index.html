@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/mainPageStyling.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 <div data-role="page" id="page_home">
@@ -25,7 +25,8 @@
                 <fieldset data-role="collapsible">
                     <legend>Category</legend>
                     <label for="home_newcategory">New Category:</label>
-                    <input type="text" name="home_newcategory" id="home_newcategory" placeholder="Enter new category" value="">
+                    <input type="text" name="home_newcategory" id="home_newcategory" placeholder="Enter new category"
+                           value="">
                     <div data-role="controlgroup">
                         <input type="checkbox" name="checkbox-1-a" id="checkbox-1-a">
                         <label for="checkbox-1-a">One</label>
@@ -46,6 +47,41 @@
                 </fieldset>
                 <label for="date">Please Choose A Date:</label>
                 <input type="date" name="date" id="date" value="">
+                <!------- advanced options ------------->
+                <fieldset data-role="collapsible">
+                    <legend>Advanced</legend>
+                    <!---- collapsible contents -->
+                    <div>
+                        <a href="#popupMenu" data-rel="popup">Open Menu</a>
+                        <a href="#popup_googleMap" data-rel="popup">Open map</a>
+                        <!-- popup contenst -->
+                        <div data-role="popup" id="popupMenu" data-theme="none"
+                             class="ui-popup ui-overlay-shadow ui-corner-all">
+
+                            <div class="ui-collapsible-content ui-body-a" aria-hidden="false">
+                                <ul data-role="listview" class="ui-listview">
+                                    <li class="ui-first-child"><a href="../dialog.html" data-rel="dialog"
+                                                                  class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
+                                    </li>
+                                    <li><a href="../dialog.html" data-rel="dialog"
+                                           class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
+                                    <li><a href="../dialog.html" data-rel="dialog"
+                                           class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
+                                    <li class="ui-last-child"><a href="../dialog.html" data-rel="dialog"
+                                                                 class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div data-role="popup" id="popup_googleMap" data-theme="none"
+                             class="ui-popup ui-overlay-shadow ui-corner-all">
+                                Good Map here
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- End advanced options -->
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-b">Add Note</a>
             </div>
         </div>

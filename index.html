@@ -59,36 +59,36 @@
                     <div>
                         <a href="#popup_list" data-rel="popup">Open Menu</a>
                         <a href="#popup_googleMap" data-rel="popup">Open map</a>
-                        <!-- popup contenst -->
-                        <div data-role="popup" id="popup_list" data-theme="none"
-                             class="ui-popup ui-overlay-shadow ui-corner-all">
-                            <div class="ui-collapsible-content ui-body-a" aria-hidden="false">
-                                <ul data-role="listview" class="ui-listview">
-                                    <li class="ui-first-child"><a href="../dialog.html" data-rel="dialog"
-                                                                  class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
-                                    </li>
-                                    <li><a href="../dialog.html" data-rel="dialog"
-                                           class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
-                                    <li><a href="../dialog.html" data-rel="dialog"
-                                           class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
-                                    <li class="ui-last-child"><a href="../dialog.html" data-rel="dialog"
-                                                                 class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div data-role="popup" id="popup_googleMap" data-theme="none"
-                             class="ui-popup ui-overlay-shadow ui-corner-all">
-                                Google Map here
-                        </div>
                     </div>
                 </fieldset>
                 <!-- End advanced options -->
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-b">Add Note</a>
             </div>
         </div>
     </main>
+
+    <!-- popup content -->
+    <div data-role="popup" id="popup_list" data-theme="none"
+         class="ui-popup ui-overlay-shadow ui-corner-all">
+        <div class="ui-collapsible-content ui-body-a" aria-hidden="false">
+            <ul data-role="listview" class="ui-listview">
+                <li class="ui-first-child"><a href="../dialog.html" data-rel="dialog"
+                                              class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
+                </li>
+                <li><a href="../dialog.html" data-rel="dialog"
+                       class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
+                <li><a href="../dialog.html" data-rel="dialog"
+                       class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
+                <li class="ui-last-child"><a href="../dialog.html" data-rel="dialog"
+                                             class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="popup" id="popup_googleMap" data-theme="none"
+         class="ui-popup ui-overlay-shadow ui-corner-all">
+        Google Map here
+    </div>
 
     <!-- History listview -->
     <div data-role="popup" id="popup_history" data-theme="none"
@@ -101,10 +101,13 @@
     </div>
 
     <!-- Footer -->
-    <div id="home_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
-        <h1>@Sheridan Todo list</h1>
+    <div id="home_footer" data-role="footer" class="ui-bar" data-position="fixed">
+        <a href="#" data-icon="arrow-u" data-role="button" data-inline="false">Move to top</a>
     </div>
 </div>
+
+<!---------- [Page Edit] ---------->
+
 <div data-role="page" id="page_edit">
     <div data-role="header">
         <h1>Edit</h1>
@@ -120,6 +123,10 @@
         <h1>@Sheridan Todo list</h1>
     </div>
 </div>
+
+
+<!---------- [Page History] ---------->
+
 <div data-role="page" id="page_history">
     <div data-role="header">
         <h1>List</h1>
@@ -135,5 +142,11 @@
         <h1>@Sheridan Todo list</h1>
     </div>
 </div>
+
+
+
+<!-- scripts -->
+<script src="scripts/main.js"></script>
+
 </body>
 </html>

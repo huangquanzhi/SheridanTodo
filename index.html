@@ -14,7 +14,7 @@
     <!-- Header -->
     <div data-role="header">
         <h1>Todo list</h1>
-        <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
+        <a href="#popup_history" data-rel="popup" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
     </div>
     <!-- content -->
     <main data-role="main" class="ui-content" id="content_home">
@@ -24,9 +24,14 @@
                 <input type="text" name="text-basic" id="text-basic" value="What To Do">
                 <fieldset data-role="collapsible">
                     <legend>Category</legend>
-                    <label for="home_newcategory">New Category:</label>
-                    <input type="text" name="home_newcategory" id="home_newcategory" placeholder="Enter new category"
-                           value="">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <input type="text" id="url" name="url" />
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="submit" value="Add" />
+                        </div>
+                    </div>
                     <div data-role="controlgroup">
                         <input type="checkbox" name="checkbox-1-a" id="checkbox-1-a">
                         <label for="checkbox-1-a">One</label>
@@ -38,26 +43,25 @@
                 </fieldset>
                 <fieldset data-role="controlgroup" data-type="horizontal">
                     <legend>Priority:</legend>
-                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked">
-                    <label for="radio-choice-v-2a">One</label>
-                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
-                    <label for="radio-choice-v-2b">Two</label>
-                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="other">
-                    <label for="radio-choice-v-2c">Three</label>
+                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="Low" checked="checked">
+                    <label for="radio-choice-v-2a">Low</label>
+                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="Mid">
+                    <label for="radio-choice-v-2b">Mid</label>
+                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="High">
+                    <label for="radio-choice-v-2c">High</label>
                 </fieldset>
-                <label for="date">Please Choose A Date:</label>
+                <label for="date">Date:</label>
                 <input type="date" name="date" id="date" value="">
                 <!------- advanced options ------------->
                 <fieldset data-role="collapsible">
                     <legend>Advanced</legend>
                     <!---- collapsible contents -->
                     <div>
-                        <a href="#popupMenu" data-rel="popup">Open Menu</a>
+                        <a href="#popup_list" data-rel="popup">Open Menu</a>
                         <a href="#popup_googleMap" data-rel="popup">Open map</a>
                         <!-- popup contenst -->
-                        <div data-role="popup" id="popupMenu" data-theme="none"
+                        <div data-role="popup" id="popup_list" data-theme="none"
                              class="ui-popup ui-overlay-shadow ui-corner-all">
-
                             <div class="ui-collapsible-content ui-body-a" aria-hidden="false">
                                 <ul data-role="listview" class="ui-listview">
                                     <li class="ui-first-child"><a href="../dialog.html" data-rel="dialog"
@@ -72,7 +76,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
 
                         <div data-role="popup" id="popup_googleMap" data-theme="none"
@@ -87,14 +90,57 @@
         </div>
     </main>
 
+    <div data-role="popup" id="popup_history" data-theme="none"
+         class="ui-popup ui-overlay-shadow ui-corner-all">
+        <div class="ui-collapsible-content ui-body-a" aria-hidden="false">
+            <ul data-role="listview" class="ui-listview">
+                <li class="ui-first-child"><a href="../dialog.html" data-rel="dialog"
+                                              class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
+                </li>
+                <li><a href="../dialog.html" data-rel="dialog"
+                       class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
+                <li><a href="../dialog.html" data-rel="dialog"
+                       class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
+                <li class="ui-last-child"><a href="../dialog.html" data-rel="dialog"
+                                             class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="true">
+    <div id="home_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
+        <h1>@Sheridan Todo list</h1>
+    </div>
+</div>
+<div data-role="page" id="page_edit">
+    <div data-role="header">
+        <h1>Edit</h1>
+        <a href="#page_home" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <!-- content -->
+    </div>
+
+    <!-- Footer -->
+    <div id="edit_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
         <h1>@Sheridan Todo list</h1>
     </div>
 </div>
 <div data-role="page" id="page_history">
-    <div data-role="main" class="ui-content">
+    <div data-role="header">
+        <h1>List</h1>
+        <a href="#page_home" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
+    </div>
 
+    <div data-role="main" class="ui-content">
+            <!-- content -->
+    </div>
+
+    <!-- Footer -->
+    <div id="history_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
+        <h1>@Sheridan Todo list</h1>
     </div>
 </div>
 </body>

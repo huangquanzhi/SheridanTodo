@@ -1,0 +1,35 @@
+.container{
+    position: relative;
+}
+#header
+{
+    background-color: black;
+    height: 8%;
+    opacity: .5; 
+    color: white;
+}
+#footer
+{
+    background-color: black;
+    height: 8%;
+    opacity: .7; 
+    color: white;
+}
+img
+{
+    width: 100%;
+    height: auto;
+}
+
+#displayNote
+{
+    position: absolute;
+    width: 50%;
+    height: 45%;
+    left:24%;
+    top:15%;
+    background-color: white;
+    opacity: .9; 
+    padding: 20px;
+    overflow: scroll;
+}

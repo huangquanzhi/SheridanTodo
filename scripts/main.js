@@ -17,6 +17,9 @@ var todo_edit = {
 
 $(document).on('pagecreate', function(e) {
 
+  loadCategory(config.form.category);
 
+  // recreate page
+  refreshPage();
 
 });

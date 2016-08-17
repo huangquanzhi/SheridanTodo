@@ -26,29 +26,24 @@
                     <legend>Category</legend>
                     <div class="ui-grid-a">
                         <div class="ui-block-a">
-                            <input type="text" id="url" name="url" />
+                            <input id="home_category_input" type="text" id="url" name="url" />
                         </div>
                         <div class="ui-block-b">
-                            <input type="submit" value="Add" />
+                            <input id="home_category_add" type="submit" value="Add" />
                         </div>
                     </div>
-                    <div data-role="controlgroup">
-                        <input type="checkbox" name="checkbox-1-a" id="checkbox-1-a">
-                        <label for="checkbox-1-a">One</label>
-                        <input type="checkbox" name="checkbox-2-a" id="checkbox-2-a">
-                        <label for="checkbox-2-a">Two</label>
-                        <input type="checkbox" name="checkbox-3-a" id="checkbox-3-a">
-                        <label for="checkbox-3-a">Three</label>
+                    <div data-role="controlgroup" id="home_category">
+                        <!-- Category collasible -->
                     </div>
                 </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
+                <fieldset data-role="controlgroup" id="home_priority" data-type="horizontal">
                     <legend>Priority:</legend>
-                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="Low" checked="checked">
-                    <label for="radio-choice-v-2a">Low</label>
-                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="Mid">
-                    <label for="radio-choice-v-2b">Mid</label>
-                    <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="High">
-                    <label for="radio-choice-v-2c">High</label>
+                    <input type="radio" name="home_priority_option" id="home_priority_low" value="Low" checked="checked">
+                    <label for="home_priority_low">Low</label>
+                    <input type="radio" name="home_priority_option" id="home_priority_mid" value="Mid">
+                    <label for="home_priority_mid">Mid</label>
+                    <input type="radio" name="home_priority_option" id="home_priority_high" value="High">
+                    <label for="home_priority_high">High</label>
                 </fieldset>
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date" value="">
@@ -146,6 +141,11 @@
 
 
 <!-- scripts -->
+<script src="scripts/config.js"></script>
+<script src="scripts/storage.js"></script>
+<script src="scripts/render.js"></script>
+<script src="scripts/functions.js"></script>
+<script src="scripts/eventlisteners.js"></script>
 <script src="scripts/main.js"></script>
 
 </body>

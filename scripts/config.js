@@ -9,5 +9,8 @@ var config = {
   },
   localStorage: {
     todoKey: 'todoList'
+  },
+  form: {
+    category: ["Test1", "Test2"]
   }
 };

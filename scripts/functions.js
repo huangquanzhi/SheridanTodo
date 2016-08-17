@@ -12,7 +12,7 @@ function loadCategory(category) {
     var elements = "";
 
     for (var i = 0; i < category.length; i++) {
-      elements += "<input type='checkbox' name='" + categoryID + i + "' id='" + categoryID + i + "'>";
+      elements += "<input type='checkbox' name='" + categoryID + i + "' id='" + categoryID + i + "' value='" + category[i] + "'>";
       elements += "<label for='" + categoryID + i + "'>" + category[i] + "</label>";
     }
     // append to control group
@@ -32,12 +32,28 @@ function addCategory(category, callback) {
 }
 
 function home_GetPriority() {
-  var value = $("#home_priority").find("input").filter(":checked").val();
-  return value;
+  return $("#home_priority").find("input").filter(":checked").val();
 }
 
 function home_GetCategory() {
+  var categoryNode = $("#home_category").find("input").filter(":checked");
+  var checkedValues = [];
 
+  // for each checked inputs, push to array
+  categoryNode.each(function () {
+    checkedValues.push(this.value);
+  });
+
+  return checkedValues;
+
+}
+
+function home_getDate() {
+  return $("#home_date").val();
+}
+
+function refreshCategory() {
+  $('#home_category').trigger('create');
 }
 
 function refreshPage() {

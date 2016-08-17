@@ -2,7 +2,7 @@
  * Created by Jackie on 2016-08-16.
  */
 
-$("#home_category_add").on("click", function () {
+$("#home_category_add").on("tap", function () {
   var input = $("#home_category_input");
   // get value
   var value = input.val();
@@ -19,7 +19,7 @@ $("#home_category_add").on("click", function () {
 });
 
 // add todos button click
-$("#home_addTodo").on("click", function () {
+$("#home_addTodo").on("tap", function () {
   var required = false;
 
   var todoDesc = home_getTodoDesc();
@@ -56,4 +56,3 @@ $("#home_addTodo").on("click", function () {
 
 });
 
-$("#")

@@ -100,12 +100,13 @@ function createTodo(title, category, priority, date) {
 
 function loadHistoryDropdown(todoList) {
   if (todoList != null && Array.isArray(todoList)) {
+    var buttonID = "popup_history_todo_";
     var dropdownNode = $("#popup_history");
     var listViewNode = dropdownNode.find("ul");
     var elements = "";
 
     for (var i = 0; i < todoList.length; i++) {
-      elements += "<li><a href='#page_history'>" + todoList[i].title + "</a><a class='ui-icon-edit' href='#page_history'></a></li>";
+      elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-edit popup_todo_item_edit' href='#'></a></li>";
     }
     // append
     listViewNode.html(elements);

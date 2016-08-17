@@ -7,12 +7,53 @@ $("#home_category_add").on("click", function () {
   // get value
   var value = input.val();
 
-  if(value) {
+  if (value) {
     // reset values
     input.val("");
     // add category ( value, callback)
     addCategory(value);
     loadCategory(config.form.category);
-    refreshCategory();
+  } else {
+    validationError("#home_category_input");
   }
 });
+
+// add todos button click
+$("#home_addTodo").on("click", function () {
+  var required = false;
+
+  var todoDesc = home_getTodoDesc();
+  var category = home_GetCategory();
+  var date = home_getDate();
+  var priority = home_GetPriority();
+
+  if (!todoDesc) {
+    required = true;
+    validationError("#home_todoDesc");
+  }
+
+  if (!date) {
+    required = true;
+    validationError("#home_date")
+  }
+
+  // all required field filled
+  if (!required) {
+    // reset form
+    home_setTodoDesc("");
+    home_resetPriority();
+    home_setDate("");
+    home_setAddCategory("");
+    loadCategory(config.form.category);
+    // open popup
+    $("#popup_todo_success").popup("open");
+
+    // created todoObject
+    var todo = createTodo(todoDesc,category,priority,date);
+    // add to local storage
+    addTodoToList(todo);
+  }
+
+});
+
+$("#")

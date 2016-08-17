@@ -2,24 +2,10 @@
  * Created by Jackie on 2016-08-15.
  */
 
+var selectedTodo = {};
 
-var todoItem = {
-  title: '',
-  category: '',
-  priority: '',
-  date: '',
-  location: ''
-};
+$(document).on('pagecreate', function (e) {
 
-var todo_edit = {
-
-};
-
-$(document).on('pagecreate', function(e) {
-
-  loadCategory(config.form.category);
-
-  // recreate page
-  refreshPage();
-
+  loadCategory(retrieveCategory());
+  loadHistoryDropdown(retrieveTodo());
 });

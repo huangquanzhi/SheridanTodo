@@ -8,9 +8,13 @@ var config = {
     title: 'Sheridan Todo List'
   },
   localStorage: {
-    todoKey: 'todoList'
+    todoKey: 'todoList',
+    categoryKey: 'categoryList'
   },
   form: {
     category: ["Test1", "Test2"]
+  },
+  settings: {
+    errorTimeout: 5000,
   }
 };

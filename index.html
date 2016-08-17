@@ -14,22 +14,23 @@
     <!-- Header -->
     <div data-role="header">
         <h1>Todo list</h1>
-        <a href="#popup_history" data-rel="popup" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
+        <a href="#popup_history" data-rel="popup"
+           class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
     </div>
     <!-- content -->
     <main data-role="main" class="ui-content" id="content_home">
         <div class="ui-grid-b ui-responsive">
             <div class="ui-block-a"></div>
             <div class="ui-block-b" id="content_todo_form">
-                <input type="text" name="text-basic" id="text-basic" value="What To Do">
+                <input type="text" id="home_todoDesc" placeholder="Enter todo here ...">
                 <fieldset data-role="collapsible">
                     <legend>Category</legend>
                     <div class="ui-grid-a">
                         <div class="ui-block-a">
-                            <input id="home_category_input" type="text" id="url" name="url" />
+                            <input id="home_category_input" type="text"/>
                         </div>
                         <div class="ui-block-b">
-                            <input id="home_category_add" type="submit" value="Add" />
+                            <input id="home_category_add" type="submit" value="Add"/>
                         </div>
                     </div>
                     <div data-role="controlgroup" id="home_category">
@@ -38,7 +39,8 @@
                 </fieldset>
                 <fieldset data-role="controlgroup" id="home_priority" data-type="horizontal">
                     <legend>Priority:</legend>
-                    <input type="radio" name="home_priority_option" id="home_priority_low" value="Low" checked="checked">
+                    <input type="radio" name="home_priority_option" id="home_priority_low" value="Low"
+                           checked="checked">
                     <label for="home_priority_low">Low</label>
                     <input type="radio" name="home_priority_option" id="home_priority_mid" value="Mid">
                     <label for="home_priority_mid">Mid</label>
@@ -86,19 +88,23 @@
         Google Map here
     </div>
 
+    <div data-role="popup" id="popup_todo_success" data-theme="a"
+         data-overlay-theme="b"
+         class="ui-content">
+        <h3>Todo Added!</h3>
+    </div>
+
     <!-- History listview -->
     <div data-role="popup" id="popup_history" data-theme="none"
          class="ui-popup ui-overlay-shadow ui-corner-all">
         <ul data-role="listview">
-            <li><a href="#page_history">Acura</a><a class="ui-icon-edit" href="#page_history"></a></li>
-            <li><a href="#page_history">Audi</a><a class="ui-icon-edit" href="#page_history"></a></li>
-            <li><a href="#page_history">BMW</a><a class="ui-icon-edit" href="#page_history"></a></li>
+            <!-- history view -->
         </ul>
     </div>
 
     <!-- Footer -->
     <div id="home_footer" data-role="footer" class="ui-bar" data-position="fixed">
-        <a href="#" data-icon="arrow-u" data-role="button" data-inline="false">Move to top</a>
+        <a href="#" id="home_addTodo" data-icon="plus" data-role="button" data-inline="false">Add</a>
     </div>
 </div>
 
@@ -107,7 +113,8 @@
 <div data-role="page" id="page_edit">
     <div data-role="header">
         <h1>Edit</h1>
-        <a href="#page_home" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
+        <a href="#page_home"
+           class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
     </div>
 
     <div data-role="main" class="ui-content">
@@ -126,11 +133,12 @@
 <div data-role="page" id="page_history">
     <div data-role="header">
         <h1>List</h1>
-        <a href="#page_home" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
+        <a href="#page_home"
+           class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
     </div>
 
     <div data-role="main" class="ui-content">
-            <!-- content -->
+        <!-- content -->
     </div>
 
     <!-- Footer -->
@@ -138,7 +146,6 @@
         <h1>@Sheridan Todo list</h1>
     </div>
 </div>
-
 
 
 <!-- scripts -->

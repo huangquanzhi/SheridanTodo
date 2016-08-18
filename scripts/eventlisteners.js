@@ -55,4 +55,3 @@ $("#home_addTodo").on("tap", function () {
   }
 
 });
-

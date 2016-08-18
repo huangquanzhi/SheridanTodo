@@ -4,14 +4,20 @@
 
 var selectedTodo = {};
 
-$(document).on('pagecreate', function (e) {
-
+$(document).on('pagecreate', '#page_home', function (e) {
   loadCategory(retrieveCategory());
   loadHistoryDropdown(retrieveTodo());
-
   // well.... only fire here
   $(".popup_todo_item_edit").on("tap", function () {
-    console.log(":Hello");
+    $.mobile.changePage("#page_edit");
+    console.log($(this).attr("data-id"));
   })
+});
+
+
+$(document).on('pagecreate', '#page_history', function (e) {
+
+  loadTodoTable(retrieveTodo());
 
 });
+

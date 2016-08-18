@@ -12,11 +12,11 @@
 <body>
 <div data-role="page" id="page_home">
     <!-- Header -->
-    <div data-role="header">
+    <header data-role="header">
         <h1>Todo list</h1>
         <a href="#popup_history" data-rel="popup"
            class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
-    </div>
+    </header>
     <!-- content -->
     <main data-role="main" class="ui-content" id="content_home">
         <div class="ui-grid-b ui-responsive">
@@ -95,56 +95,74 @@
     </div>
 
     <!-- History listview -->
-    <div data-role="popup" id="popup_history" data-theme="none"
-         class="ui-popup ui-overlay-shadow ui-corner-all">
+    <div data-role="popup" data-theme="none"
+         class="ui-popup ui-overlay-shadow ui-corner-all "
+         id="popup_history">
         <ul data-role="listview">
             <!-- history view -->
         </ul>
     </div>
-
     <!-- Footer -->
-    <div id="home_footer" data-role="footer" class="ui-bar" data-position="fixed">
+    <footer id="home_footer" data-role="footer" class="ui-bar" data-position="fixed">
         <a href="#" id="home_addTodo" data-icon="plus" data-role="button" data-inline="false">Add</a>
-    </div>
+    </footer>
 </div>
 
 <!---------- [Page Edit] ---------->
 
 <div data-role="page" id="page_edit">
-    <div data-role="header">
+    <header data-role="header">
         <h1>Edit</h1>
-        <a href="#page_home"
-           class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
-    </div>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+            <a href="#page_home"
+               class=" ui-btn  ui-mini ui-corner-all ui-icon-home">Back</a>
+        </div>
+    </header>
 
-    <div data-role="main" class="ui-content">
+    <main data-role="main" class="ui-content">
         <!-- content -->
-    </div>
-
+    </main>
     <!-- Footer -->
-    <div id="edit_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
+    <footer id="edit_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
         <h1>@Sheridan Todo list</h1>
-    </div>
+    </footer>
 </div>
 
 
 <!---------- [Page History] ---------->
 
 <div data-role="page" id="page_history">
-    <div data-role="header">
+    <header data-role="header">
         <h1>List</h1>
-        <a href="#page_home"
-           class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
-    </div>
+        <div>
+            <a href="#page_home"
+               class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-home">Back</a>
+        </div>
+    </header>
 
-    <div data-role="main" class="ui-content">
-        <!-- content -->
-    </div>
+    <main data-role="main" class="ui-content">
+        <div>
+            <table data-role="table" data-mode="columntoggle" id="history_todolist">
+                <thead>
+                <tr>
+                    <th data-priority="1" data-colstart="1" class="ui-table-priority-1 ui-table-cell-visible">#</th>
+                    <th data-priority="2" data-colstart="2" class="ui-table-priority-2 ui-table-cell-visible">Description</th>
+                    <th data-priority="3" data-colstart="3" class="ui-table-priority-3 ui-table-cell-visible">Priority</th>
+                    <th data-priority="4" data-colstart="4" class="ui-table-priority-4 ui-table-cell-visible">Category</th>
+                    <th data-priority="5" data-colstart="5" class="ui-table-priority-5 ui-table-cell-visible">Date</th>
+                    <th data-priority="6" data-colstart="6" class="ui-table-priority-6 ui-table-cell-visible">Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
     <!-- Footer -->
-    <div id="history_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
+    <footer id="history_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
         <h1>@Sheridan Todo list</h1>
-    </div>
+    </footer>
 </div>
 
 

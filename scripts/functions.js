@@ -7,8 +7,8 @@ function loadCategory(category) {
   var categoryID = 'home_category_';
   var groupName = 'userCategory';
 
-  // check if array
-  if (Array.isArray(category)) {
+  // check if array and category node exist
+  if (Array.isArray(category) && categoryNode.length) {
     var elements = "";
 
     for (var i = 0; i < category.length; i++) {
@@ -99,19 +99,43 @@ function createTodo(title, category, priority, date) {
 }
 
 function loadHistoryDropdown(todoList) {
-  if (todoList != null && Array.isArray(todoList)) {
-    var buttonID = "popup_history_todo_";
-    var dropdownNode = $("#popup_history");
+  var dropdownNode = $("#popup_history");
+
+  if (todoList != null && Array.isArray(todoList) && dropdownNode.length) {
     var listViewNode = dropdownNode.find("ul");
     var elements = "";
 
     for (var i = 0; i < todoList.length; i++) {
-      elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-edit popup_todo_item_edit' href='#'></a></li>";
+      elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-edit popup_todo_item_edit' data-id='" + i + "'href='#'></a></li>";
     }
+    elements += "<li><a href='#page_history'>View All</a></li>"
     // append
     listViewNode.html(elements);
     listViewNode.listview("refresh");
   }
+}
+
+function loadTodoTable(todoList) {
+  var tableNode = $("#history_todolist");
+
+  if (todoList != null && Array.isArray(todoList) && tableNode.length) {
+    var elements = "";
+
+    for (var i = 0; i < todoList.length; i++) {
+      var todo = todoList[i];
+      elements += "<tr>";
+      elements += "<th class='ui-table-priority-" + (i + 1) + " ui-table-cell-visible'>" + (i + 1) + "</th>";
+      Object.keys(todo).forEach(function (key, index) {
+        elements += "<th class='ui-table-priority-" + (index + 2) + " ui-table-cell-visible'>" + todo[key] + "</th>";
+      });
+      elements += "</tr>";
+    }
+
+    // append to table
+    tableNode.find("tbody").html(elements);
+
+  }
+
 }
 
 function clearError(element) {

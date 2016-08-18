@@ -55,8 +55,14 @@
                     <legend>Advanced</legend>
                     <!---- collapsible contents -->
                     <div>
-                        <a href="#popup_list" data-rel="popup">Open Menu</a>
-                        <a href="#popup_googleMap" data-rel="popup">Open map</a>
+                        <h3>Location of event</h3>
+                        <div data-role="controlgroup" data-role="horizontal" id="home_advanced_loc">
+                            <label for="home_advanced_loc_lat">Latitude</label>
+                            <input type="text" id="home_advanced_loc_lat" disabled>
+                            <label for="home_advanced_loc_lng">Longitude</label>
+                            <input type="text" id="home_advanced_loc_lng" disabled>
+                        </div>
+                        <a data-role="button" id="home_popup_maps_button" href="#popup_googleMap" data-rel="popup">Open map</a>
                     </div>
                 </fieldset>
                 <!-- End advanced options -->
@@ -146,9 +152,13 @@
                 <thead>
                 <tr>
                     <th data-priority="1" data-colstart="1" class="ui-table-priority-1 ui-table-cell-visible">#</th>
-                    <th data-priority="2" data-colstart="2" class="ui-table-priority-2 ui-table-cell-visible">Description</th>
-                    <th data-priority="3" data-colstart="3" class="ui-table-priority-3 ui-table-cell-visible">Category</th>
-                    <th data-priority="4" data-colstart="4" class="ui-table-priority-4 ui-table-cell-visible">Priority</th>
+                    <th data-priority="2" data-colstart="2" class="ui-table-priority-2 ui-table-cell-visible">
+                        Description
+                    </th>
+                    <th data-priority="3" data-colstart="3" class="ui-table-priority-3 ui-table-cell-visible">Category
+                    </th>
+                    <th data-priority="4" data-colstart="4" class="ui-table-priority-4 ui-table-cell-visible">Priority
+                    </th>
                     <th data-priority="5" data-colstart="5" class="ui-table-priority-5 ui-table-cell-visible">Date</th>
 
                 </tr>
@@ -166,11 +176,12 @@
     </footer>
 </div>
 
-
 <!-- scripts -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqLPcQyEMRzSyVVGHi5T0I0tywOvJL18"
+        async defer></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/storage.js"></script>
-<script src="scripts/render.js"></script>
+<script src="scripts/googleMaps.js"></script>
 <script src="scripts/functions.js"></script>
 <script src="scripts/main.js"></script>
 <script src="scripts/eventlisteners.js"></script>

@@ -55,3 +55,14 @@ $("#home_addTodo").on("tap", function () {
   }
 
 });
+
+$("#home_popup_maps_button").on("tap", function () {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      initMap(position.coords.latitude, position.coords.longitude);
+    })
+  } else {
+    Alert("No gelocation support!");
+  }
+
+});

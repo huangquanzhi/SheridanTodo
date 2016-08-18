@@ -2,7 +2,7 @@
  * Created by Jackie on 2016-08-15.
  */
 
-var selectedTodo = {};
+var selectedLocation = {};
 
 $(document).on('pagecreate', '#page_home', function (e) {
   loadCategory(retrieveCategory());

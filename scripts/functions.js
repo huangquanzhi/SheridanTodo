@@ -133,8 +133,15 @@ function loadTodoTable(todoList) {
 
     // append to table
     tableNode.find("tbody").html(elements);
-
   }
+
+}
+
+function setLocationInput(latLng) {
+  var locInput = $("#home_advanced_loc").find("input");
+
+  locInput.first().val(latLng.lat);
+  locInput.last().val(latLng.lng);
 
 }
 

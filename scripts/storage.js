@@ -22,6 +22,18 @@ function saveTodoList(todoList) {
   }
 }
 
+function editTodoList(todoList, todo, index) {
+  if (todoList != null && Array.isArray(todoList) && todo != null && index != null) {
+    // var todoList = retrieveTodo();
+    // if(todoList != null) {
+    //   todoList.push(todo);
+    // } else {
+    //   todoList = [todo];
+    // }
+    // saveTodoList(todoList);
+  }
+}
+
 // retrieve list of todos
 function retrieveTodo() {
 
@@ -58,6 +70,8 @@ function retrieveCategory() {
   if (category != undefined) {
     // parse from string to object
     return JSON.parse(category);
+  } else {
+    return config.form.category;
   }
   return null;
 }

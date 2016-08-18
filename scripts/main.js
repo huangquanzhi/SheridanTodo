@@ -5,13 +5,17 @@
 var selectedLocation = {};
 
 $(document).on('pagecreate', '#page_home', function (e) {
+  var todoList = retrieveCategory();
   loadCategory(retrieveCategory());
-  loadHistoryDropdown(retrieveTodo());
+  loadHistoryDropdown(todoList);
   // well.... only fire here
-  $(".popup_todo_item_edit").on("tap", function () {
-    $.mobile.changePage("#page_edit");
-    console.log($(this).attr("data-id"));
-  })
+  $(".popup_todo_item_complete").on("tap", function () {
+    // get todoAnd set complete
+    var todo = todoList[$(this).attr("data-id")];
+    todo.completed = true;
+
+    
+  });
 
   $("#popup_history_view").on("tap", function () {
     loadTodoTable(retrieveTodo());

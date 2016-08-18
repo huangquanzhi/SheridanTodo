@@ -18,6 +18,7 @@ function loadCategory(category) {
     // append to control group
     categoryNode.html(elements);
     refreshCategory();
+    loadHistoryDropdown(category);
   } else {
     console.log("Failed to load category");
   }
@@ -93,7 +94,8 @@ function createTodo(title, category, priority, date) {
     title: title,
     category: category,
     priority: priority,
-    date: date
+    date: date,
+    completed: false
   };
   return todoItem;
 }
@@ -106,7 +108,7 @@ function loadHistoryDropdown(todoList) {
     var elements = "";
 
     for (var i = 0; i < todoList.length; i++) {
-      elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-edit popup_todo_item_edit' data-id='" + i + "'href='#'></a></li>";
+      elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-check popup_todo_item_complete' data-id='" + i + "'href='#'></a></li>";
     }
     elements += "<li><a href='#page_history'  id='popup_history_view'>View All</a></li>"
     // append
@@ -142,7 +144,6 @@ function setLocationInput(latLng) {
 
   locInput.first().val(latLng.lat);
   locInput.last().val(latLng.lng);
-
 }
 
 function clearError(element) {

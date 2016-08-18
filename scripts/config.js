@@ -12,9 +12,9 @@ var config = {
     categoryKey: 'categoryList'
   },
   form: {
-    category: ["Test1", "Test2"]
+    category: []
   },
   settings: {
-    errorTimeout: 5000,
+    errorTimeout: 2500,
   }
 };

@@ -12,6 +12,10 @@ $(document).on('pagecreate', '#page_home', function (e) {
     $.mobile.changePage("#page_edit");
     console.log($(this).attr("data-id"));
   })
+
+  $("#popup_history_view").on("tap", function () {
+    loadTodoTable(retrieveTodo());
+  });
 });
 
 

@@ -108,7 +108,7 @@ function loadHistoryDropdown(todoList) {
     for (var i = 0; i < todoList.length; i++) {
       elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-edit popup_todo_item_edit' data-id='" + i + "'href='#'></a></li>";
     }
-    elements += "<li><a href='#page_history'>View All</a></li>"
+    elements += "<li><a href='#page_history'  id='popup_history_view'>View All</a></li>"
     // append
     listViewNode.html(elements);
     listViewNode.listview("refresh");
@@ -141,6 +141,10 @@ function loadTodoTable(todoList) {
 function clearError(element) {
   var node = $(element);
   node.removeClass("backgroundColor_red");
+}
+
+function recreateHistory() {
+  $('#page_history').trigger('create');
 }
 
 function refreshCategory() {

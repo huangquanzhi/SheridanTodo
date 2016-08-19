@@ -125,21 +125,32 @@ function loadHistoryDropdown(todoList) {
 }
 
 function loadTodoTable(todoList) {
-  var tableNode = $("#history_todolist");
+  var tableNode = $("#history_todolist_progress");
 
   if (todoList != null && Array.isArray(todoList) && tableNode.length) {
     var elements = "";
 
     // create elements
-    elements += "<ul data-role='listview' id='history_todo_wrap'>";
+    // search
+    elements += "<form class='ui-filterable'>" +
+        "<input id='history_todo_filte' data-type='search'></form>"
+    // list view
+    elements += "<ul data-role='listview' id='history_todo_wrap' data-filter='true' data-input='#history_todo_filter'>";
+
     for (var i = 0; i < todoList.length; i++) {
       var todo = todoList[i];
-      elements += "<div data-role='collapsible'>";
-      elements += "<h3>" + todo.title + "</h3>"
+      elements += "<div data-role='collapsible' class='history_todo_collapsible' data-iconpos='right'>";
+      elements += "<h3 class='history_todo_header'><b>Title:</b> " + todo.title + "</h3>"
       elements += "<ul data-role='listview'>";
       Object.keys(todo).forEach(function (key, index) {
         if (key != "title") {
-          elements += "<li>" + todo[key] + "</li>";
+          if (key == "location") {
+            elements += "<li>" + "<b>" + key.toUpperCase() + "</b>" + " : " + todo[key].address +
+                "<input type='button' class='history_todo_location_map' value='Open Maps' data-id='" + i + "'/>" +
+                "</li>";
+          } else {
+            elements += "<li>" + "<b>" + key.toUpperCase() + "</b>" + " : " + todo[key] + "</li>";
+          }
         }
       });
       elements += "</ul>";
@@ -149,8 +160,7 @@ function loadTodoTable(todoList) {
 
     // append to table
     tableNode.html(elements);
-    //$("#history_todo_wrap").listview("refresh");
-
+    refreshPage();
   }
 
 }

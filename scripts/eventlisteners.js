@@ -73,5 +73,4 @@ $("#home_popup_maps_button").on("tap", function () {
   } else {
     notificationMessage("No gelocation support!");
   }
-
 });

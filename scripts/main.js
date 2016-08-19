@@ -41,7 +41,13 @@ $(document).on('pagecreate', '#page_home', function (e) {
 
 
 $(document).on('pagecreate', '#page_history', function (e) {
-  loadTodoTable(retrieveTodo());
+  var todoList = retrieveTodo();
+  loadTodoTable(todoList);
+  $(".history_todo_location_map").on("tap", function () {
+    // get todoAnd set complete
+    var todo = todoList[$(this).attr("data-id")];
+    console.log(todo)
+  });
 });
 
 $(document).on( "pagecontainershow", function(){

@@ -24,7 +24,7 @@ $(document).on("pageinit", function () {
 
 $(document).on('pagecreate', '#page_home', function (e) {
   var todoList = retrieveTodo();
-  loadCategory(todoList);
+  loadCategory(retrieveCategory());
   loadHistoryDropdown(todoList);
   // well.... only fire here
   $(".popup_todo_item_complete").on("tap", function () {

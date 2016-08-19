@@ -20,7 +20,7 @@ function loadCategory(category) {
     refreshCategory();
     loadHistoryDropdown(category);
   } else {
-    console.log("Failed to load category");
+    notificationMessage("Failed to load category");
   }
 }
 
@@ -149,19 +149,30 @@ function loadTodoTable(todoList) {
 
 function setLocationInput(latLng) {
   var locInput = $("#home_advanced_loc").find("input");
-
   locInput.first().val(latLng.lat);
-  locInput.next().val(latLng.lng);
+  locInput.last().val(latLng.lng);
 }
 
 function setLocationAddress(address) {
-  var locAddress = $("#home_advanced_loc_address");
-  return locAddress.val(address);
+  var locAddress = $("#home_advanced_loc_address").find("input");
+  locAddress.val(address);
 }
 
 function home_getLocationAddress() {
-  var locAddress = $("#home_advanced_loc_address");
+  var locAddress = $("#home_advanced_loc_address").find("input");
   return locAddress.val();
+}
+
+function getLocationObject() {
+  var location = home_getLocation();
+  var address = home_getLocationAddress();
+
+  if (location != null) {
+    return Object.assign({}, location, {
+      address: address
+    })
+  }
+  return null;
 }
 
 function home_getLocation() {
@@ -173,6 +184,22 @@ function home_getLocation() {
     return {lat: lat, lng: lng};
   }
   return null;
+}
+
+function home_resetLocation() {
+  setLocationAddress("");
+  setLocationInput({lat: "", lng: ""});
+}
+
+
+function notificationMessage(message) {
+  var messageBox = $("#popup_todo_message");
+
+  if(message != "") {
+    messageBox.html("<h3>" + message + "</h3>");
+    // return the popup object
+    messageBox.popup("open");
+  }
 }
 
 function clearError(element) {
@@ -191,3 +218,4 @@ function refreshCategory() {
 function refreshPage() {
   $('.ui-page').trigger('create');
 }
+

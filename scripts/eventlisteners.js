@@ -15,6 +15,7 @@ $("#home_category_add").on("tap", function () {
     loadCategory(config.form.category);
   } else {
     validationError("#home_category_input");
+    notificationMessage("Category name required!");
   }
 });
 
@@ -26,7 +27,7 @@ $("#home_addTodo").on("tap", function () {
   var category = home_getCategory();
   var date = home_getDate();
   var priority = home_GetPriority();
-  var location = home_getLocation();
+  var location = getLocationObject();
 
   if (!todoDesc) {
     required = true;
@@ -45,15 +46,19 @@ $("#home_addTodo").on("tap", function () {
     home_resetPriority();
     home_setDate("");
     home_setAddCategory("");
-    loadCategory(config.form.category);
-    // open popup
-    $("#popup_todo_success").popup("open");
+    home_resetLocation();
 
+    // reload
+    loadCategory(retrieveCategory());
+    loadHistoryDropdown(retrieveTodo());
+    // open popup
+    notificationMessage("Todo added!");
     // created todoObject
     var todo = createTodo(todoDesc, category, priority, date, location);
     // add to local storage
     addTodoToList(todo);
-
+  } else {
+    notificationMessage("Red fields required!");
   }
 });
 
@@ -63,7 +68,7 @@ $("#home_popup_maps_button").on("tap", function () {
       initMap(position.coords.latitude, position.coords.longitude, true);
     })
   } else {
-    Alert("No gelocation support!");
+    notificationMessage("No gelocation support!");
   }
 
 });

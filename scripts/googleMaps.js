@@ -19,11 +19,9 @@ function initMap(lat, lng, allowClick) {
       var lat = e.latLng.lat();
       var lng = e.latLng.lng();
       location = {lat: lat, lng: lng};
-      var address = geocodeLatLng(location);
-      console.log(address)
+      geocodeLatLng(location, setLocationAddress);
       deleteMarkers();
-      setLocationAddress(address);
-      setLocationInput(e.latLng);
+      setLocationInput(location);
       addMarker(e.latLng);
     });
   }
@@ -38,12 +36,15 @@ function codeAddress(address) {
   });
 }
 
-function geocodeLatLng(latLng) {
+function geocodeLatLng(latLng, callback) {
   var address = "";
   geocoder.geocode({'location': latLng}, function (results, status) {
     if (status === 'OK') {
       if (results[0]) {
-        address =  results[0].formatted_address;
+        address = results[0].formatted_address;
+        if (callback != undefined) {
+          callback(address);
+        }
       } else {
         window.alert('No results found');
       }

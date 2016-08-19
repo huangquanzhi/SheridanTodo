@@ -56,15 +56,18 @@
                     <!---- collapsible contents -->
                     <div>
                         <h3>Location of event</h3>
-                        <div data-role="controlgroup" data-role="horizontal" id="home_advanced_loc">
-                            <label for="home_advanced_loc_lat">Latitude</label>
-                            <input type="text" id="home_advanced_loc_lat" disabled>
-                            <label for="home_advanced_loc_lng">Longitude</label>
-                            <input type="text" id="home_advanced_loc_lng" disabled>
-                            <label for="home_advanced_loc_lat">Address</label>
-                            <input type="text" id="home_advanced_loc_address" disabled>
+                        <div data-role="controlgroup" id="home_advanced_loc_address">
+                            <h5>Address</h5>
+                            <input type="text" disabled>
                         </div>
-                        <a data-role="button" id="home_popup_maps_button" href="#popup_googleMap" data-rel="popup">Open map</a>
+                        <div data-role="controlgroup" id="home_advanced_loc">
+                            <h5>Latitude</h5>
+                            <input type="text" id="home_advanced_loc_lat" disabled>
+                            <h5>Longitude</h5>
+                            <input type="text" id="home_advanced_loc_lng" disabled>
+                        </div>
+                        <a data-role="button" id="home_popup_maps_button" href="#popup_googleMap" data-rel="popup">Open
+                            map</a>
                     </div>
                 </fieldset>
                 <!-- End advanced options -->
@@ -96,10 +99,9 @@
          class="ui-popup ui-overlay-shadow ui-corner-all">
     </div>
 
-    <div data-role="popup" id="popup_todo_success" data-theme="a"
+    <div data-role="popup" id="popup_todo_message" data-theme="a"
          data-overlay-theme="b"
          class="ui-content">
-        <h3>Todo Added!</h3>
     </div>
 
     <!-- History listview -->

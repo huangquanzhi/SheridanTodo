@@ -23,9 +23,10 @@ $("#home_addTodo").on("tap", function () {
   var required = false;
 
   var todoDesc = home_getTodoDesc();
-  var category = home_GetCategory();
+  var category = home_getCategory();
   var date = home_getDate();
   var priority = home_GetPriority();
+  var location = home_getLocation();
 
   if (!todoDesc) {
     required = true;
@@ -49,15 +50,15 @@ $("#home_addTodo").on("tap", function () {
     $("#popup_todo_success").popup("open");
 
     // created todoObject
-    var todo = createTodo(todoDesc,category,priority,date, location);
+    var todo = createTodo(todoDesc, category, priority, date, location);
     // add to local storage
     addTodoToList(todo);
-  }
 
+  }
 });
 
 $("#home_popup_maps_button").on("tap", function () {
-  if(navigator.geolocation) {
+  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
       initMap(position.coords.latitude, position.coords.longitude);
     })

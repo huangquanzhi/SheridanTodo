@@ -57,7 +57,7 @@ function home_GetPriority() {
   return $("#home_priority").find("input").filter(":checked").val();
 }
 
-function home_GetCategory() {
+function home_getCategory() {
   var categoryNode = $("#home_category").find("input").filter(":checked");
   var checkedValues = [];
 
@@ -124,6 +124,7 @@ function loadTodoTable(todoList) {
   if (todoList != null && Array.isArray(todoList) && tableNode.length) {
     var elements = "";
 
+    // create elements
     for (var i = 0; i < todoList.length; i++) {
       var todo = todoList[i];
       elements += "<tr>";
@@ -148,7 +149,14 @@ function setLocationInput(latLng) {
 }
 
 function home_getLocation() {
+  var locInput = $("#home_advanced_loc").find("input");
+  var lat = locInput.first().val();
+  var lng = locInput.last().val();
 
+  if(lat != "" || lng != "") {
+    return { lat: lat, lng: lng };
+  }
+  return null;
 }
 
 function clearError(element) {

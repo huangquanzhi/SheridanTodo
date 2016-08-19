@@ -23,25 +23,24 @@ $(document).on("pageinit", function () {
 });
 
 $(document).on('pagecreate', '#page_home', function (e) {
-  var todoList = retrieveCategory();
-  loadCategory(retrieveCategory());
+  var todoList = retrieveTodo();
+  loadCategory(todoList);
   loadHistoryDropdown(todoList);
   // well.... only fire here
   $(".popup_todo_item_complete").on("tap", function () {
     // get todoAnd set complete
     var todo = todoList[$(this).attr("data-id")];
     todo.completed = true;
-    
   });
 
   $("#popup_history_view").on("tap", function () {
+    // cant use cache, since todos might have updated
     loadTodoTable(retrieveTodo());
   });
 });
 
 
 $(document).on('pagecreate', '#page_history', function (e) {
-
   loadTodoTable(retrieveTodo());
 
 });

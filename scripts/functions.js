@@ -107,10 +107,16 @@ function loadHistoryDropdown(todoList) {
   if (todoList != null && Array.isArray(todoList) && dropdownNode.length) {
     var listViewNode = dropdownNode.find("ul");
     var elements = "";
-
     for (var i = 0; i < todoList.length; i++) {
-      elements += "<li><a href='#'>" + todoList[i].title + "</a><a class='ui-icon-check popup_todo_item_complete' data-id='" + i + "'href='#'></a></li>";
+      // display only not completed
+      var todo = todoList[i];
+      if (!todo.completed) {
+        elements += "<li><a href='#'>" + todo.title + "</a>" +
+            "<a class='ui-icon-check popup_todo_item_complete' data-id='" + i + "' href='#'></a>" +
+            "</li>";
+      }
     }
+
     elements += "<li><a href='#page_history'  id='popup_history_view'>View All</a></li>"
     // append
     listViewNode.html(elements);
@@ -145,7 +151,17 @@ function setLocationInput(latLng) {
   var locInput = $("#home_advanced_loc").find("input");
 
   locInput.first().val(latLng.lat);
-  locInput.last().val(latLng.lng);
+  locInput.next().val(latLng.lng);
+}
+
+function setLocationAddress(address) {
+  var locAddress = $("#home_advanced_loc_address");
+  return locAddress.val(address);
+}
+
+function home_getLocationAddress() {
+  var locAddress = $("#home_advanced_loc_address");
+  return locAddress.val();
 }
 
 function home_getLocation() {
@@ -153,8 +169,8 @@ function home_getLocation() {
   var lat = locInput.first().val();
   var lng = locInput.last().val();
 
-  if(lat != "" || lng != "") {
-    return { lat: lat, lng: lng };
+  if (lat != "" || lng != "") {
+    return {lat: lat, lng: lng};
   }
   return null;
 }

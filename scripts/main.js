@@ -4,6 +4,24 @@
 
 var selectedLocation = {};
 
+$(document).on("pageinit", function () {
+  $.ajax({
+    url: "./data/remoteData.json",
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      if(Array.isArray(data)){
+        data.each(function (todo) {
+          addTodoToList(todo);
+        })
+      }
+    },
+    error: function () {
+      console.log("Failed to load!");
+    }
+  })
+});
+
 $(document).on('pagecreate', '#page_home', function (e) {
   var todoList = retrieveCategory();
   loadCategory(retrieveCategory());

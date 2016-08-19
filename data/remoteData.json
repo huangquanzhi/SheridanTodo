@@ -1,0 +1,25 @@
+{
+  "todoList": [
+    {
+      "title": "Finish Mobile project",
+      "category": "Work",
+      "priority": "High",
+      "date": "2016-08-19",
+      "completed": false
+    },
+    {
+      "title": "Tom's birthday party",
+      "category": "Relax",
+      "priority": "Mid",
+      "date": "2016-08-16",
+      "completed": true
+    },
+    {
+      "title": "Buy some milk",
+      "category": "Shopping",
+      "priority": "Low",
+      "date": "2016-02-12",
+      "completed": false
+    }
+  ]
+}

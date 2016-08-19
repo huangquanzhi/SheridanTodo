@@ -12,9 +12,9 @@
 <body>
 <div data-role="page" id="page_home">
     <!-- Header -->
-    <header data-role="header"  data-position="fixed">
+    <header data-role="header" data-position="fixed">
         <h1>Todo list</h1>
-        <a href="#popup_history" data-rel="popup"
+        <a href="#panel_history" data-rel="popup"
            class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
     </header>
     <!-- content -->
@@ -66,8 +66,8 @@
                             <h5>Longitude</h5>
                             <input type="text" id="home_advanced_loc_lng" disabled>
                         </div>
-                        <a data-role="button" id="home_popup_maps_button" href="#popup_googleMap" data-rel="popup">Open
-                            map</a>
+                        <a data-role="button" id="home_popup_maps_button" href="#popup_googleMap"
+                           data-rel="popup" data-position-to="window" data-transition="flip">Open map</a>
                     </div>
                 </fieldset>
                 <!-- End advanced options -->
@@ -80,41 +80,33 @@
          class="ui-popup ui-overlay-shadow ui-corner-all">
         <div class="ui-collapsible-content ui-body-a" aria-hidden="false">
             <ul data-role="listview" class="ui-listview">
-                <li class="ui-first-child"><a href="../dialog.html" data-rel="dialog"
-                                              class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
-                </li>
-                <li><a href="../dialog.html" data-rel="dialog"
+                <li><a href="#" data-rel="dialog"
                        class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
-                <li><a href="../dialog.html" data-rel="dialog"
-                       class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a></li>
-                <li class="ui-last-child"><a href="../dialog.html" data-rel="dialog"
-                                             class="ui-btn ui-btn-icon-right ui-icon-carat-r">Test</a>
-                </li>
             </ul>
         </div>
     </div>
 
     <!-- google maps -->
     <div data-role="popup" id="popup_googleMap" data-theme="none"
-         class="ui-popup ui-overlay-shadow ui-corner-all">
+         class="ui-popup ui-overlay-shadow ui-corner-all ui-content">
+        <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext"
+           class="ui-btn-left">Close</a>
     </div>
 
     <div data-role="popup" id="popup_todo_message" data-theme="a"
          data-overlay-theme="b"
-         class="ui-content">
+    >
     </div>
 
     <!-- History listview -->
-    <div data-role="popup" data-theme="none"
-         class="ui-popup ui-overlay-shadow ui-corner-all "
-         id="popup_history">
+    <div data-role="panel" id="panel_history" data-position="right" data-display="push" data-theme="b">
         <ul data-role="listview">
             <!-- history view -->
         </ul>
-    </div>
-    <!-- Footer -->
+    </div><!-- /panel -->
+
     <footer id="home_footer" data-role="footer" data-position="fixed">
-        <a href="#" id="home_addTodo" data-icon="plus" data-role="button" data-inline="false">Add</a>
+        <a href="#" id="home_addTodo" class="ui-btn ui-corner-all ui-btn-inline  ui-btn-icon-right ui-icon-plus">Add</a>
     </footer>
 </div>
 
@@ -129,27 +121,9 @@
         </div>
     </header>
 
-    <main data-role="main" class="ui-content">
-        <div>
-            <table data-role="table" data-mode="columntoggle" id="history_todolist">
-                <thead>
-                <tr>
-                    <th data-priority="1" data-colstart="1" class="ui-table-priority-1 ui-table-cell-visible">#</th>
-                    <th data-priority="2" data-colstart="2" class="ui-table-priority-2 ui-table-cell-visible">
-                        Description
-                    </th>
-                    <th data-priority="3" data-colstart="3" class="ui-table-priority-3 ui-table-cell-visible">Category
-                    </th>
-                    <th data-priority="4" data-colstart="4" class="ui-table-priority-4 ui-table-cell-visible">Priority
-                    </th>
-                    <th data-priority="5" data-colstart="5" class="ui-table-priority-5 ui-table-cell-visible">Date</th>
+    <main data-role="main" class="ui-content" id="content_history">
+        <div id="history_todolist_progress">
 
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
         </div>
     </main>
 

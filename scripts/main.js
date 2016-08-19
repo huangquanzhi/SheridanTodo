@@ -45,3 +45,10 @@ $(document).on('pagecreate', '#page_history', function (e) {
 
 });
 
+$(document).on( "pagecontainershow", function(){
+  ScaleContentToDevice();
+});
+
+$(window).on("resize orientationchange", function(){
+  ScaleContentToDevice();
+});

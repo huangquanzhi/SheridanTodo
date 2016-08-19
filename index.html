@@ -12,7 +12,7 @@
 <body>
 <div data-role="page" id="page_home">
     <!-- Header -->
-    <header data-role="header">
+    <header data-role="header"  data-position="fixed">
         <h1>Todo list</h1>
         <a href="#popup_history" data-rel="popup"
            class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">History</a>
@@ -113,7 +113,7 @@
         </ul>
     </div>
     <!-- Footer -->
-    <footer id="home_footer" data-role="footer" class="ui-bar" data-position="fixed">
+    <footer id="home_footer" data-role="footer" data-position="fixed">
         <a href="#" id="home_addTodo" data-icon="plus" data-role="button" data-inline="false">Add</a>
     </footer>
 </div>
@@ -121,7 +121,7 @@
 <!---------- [Page History] ---------->
 
 <div data-role="page" id="page_history">
-    <header data-role="header">
+    <header data-role="header" data-position="fixed">
         <h1>List</h1>
         <div>
             <a href="#page_home"
@@ -154,7 +154,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="history_footer" data-role="footer" data-position="fixed" data-fullscreen="true">
+    <footer id="history_footer" data-role="footer" data-fullscreen="true">
         <h1>@Sheridan Todo list</h1>
     </footer>
 </div>

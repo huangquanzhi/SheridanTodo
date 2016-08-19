@@ -89,12 +89,13 @@ function validationError(element) {
 
 }
 
-function createTodo(title, category, priority, date) {
+function createTodo(title, category, priority, date, location) {
   var todoItem = {
     title: title,
     category: category,
     priority: priority,
     date: date,
+    location: location,
     completed: false
   };
   return todoItem;
@@ -144,6 +145,10 @@ function setLocationInput(latLng) {
 
   locInput.first().val(latLng.lat);
   locInput.last().val(latLng.lng);
+}
+
+function home_getLocation() {
+
 }
 
 function clearError(element) {

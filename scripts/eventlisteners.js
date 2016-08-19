@@ -49,7 +49,7 @@ $("#home_addTodo").on("tap", function () {
     $("#popup_todo_success").popup("open");
 
     // created todoObject
-    var todo = createTodo(todoDesc,category,priority,date);
+    var todo = createTodo(todoDesc,category,priority,date, location);
     // add to local storage
     addTodoToList(todo);
   }

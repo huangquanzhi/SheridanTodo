@@ -31,7 +31,6 @@ $(document).on('pagecreate', '#page_home', function (e) {
     // get todoAnd set complete
     var todo = todoList[$(this).attr("data-id")];
     todo.completed = true;
-
     
   });
 

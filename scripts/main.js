@@ -42,7 +42,6 @@ $(document).on('pagecreate', '#page_home', function (e) {
 
 $(document).on('pagecreate', '#page_history', function (e) {
   loadTodoTable(retrieveTodo());
-
 });
 
 $(document).on( "pagecontainershow", function(){

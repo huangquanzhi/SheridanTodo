@@ -1,4 +1,4 @@
-#page_home, #page_history, #page_edit {
+#content_home, #content_history {
     background-image: url("../images/mainPageImage.jpg");
 }
 
@@ -13,7 +13,6 @@
     background-color: #F44336 !important;
 }
 
-#popup_googleMap {
-    height: 500px;
-    width: 500px;
+#popup_googleMap{
+
 }

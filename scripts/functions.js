@@ -102,7 +102,7 @@ function createTodo(title, category, priority, date, location) {
 }
 
 function loadHistoryDropdown(todoList) {
-  var dropdownNode = $("#popup_history");
+  var dropdownNode = $("#panel_history");
 
   if (todoList != null && Array.isArray(todoList) && dropdownNode.length) {
     var listViewNode = dropdownNode.find("ul");
@@ -111,8 +111,8 @@ function loadHistoryDropdown(todoList) {
       // display only not completed
       var todo = todoList[i];
       if (!todo.completed) {
-        elements += "<li><a href='#'>" + todo.title + "</a>" +
-            "<a class='ui-icon-check popup_todo_item_complete' data-id='" + i + "' href='#'></a>" +
+        elements += "<li data-theme='a'><a href='#'>" + todo.title + "</a>" +
+            "<a class='ui-icon-check popup_todo_item_complete' data-theme='a' data-id='" + i + "' href='#'></a>" +
             "</li>";
       }
     }
@@ -131,18 +131,26 @@ function loadTodoTable(todoList) {
     var elements = "";
 
     // create elements
+    elements += "<ul data-role='listview' id='history_todo_wrap'>";
     for (var i = 0; i < todoList.length; i++) {
       var todo = todoList[i];
-      elements += "<tr>";
-      elements += "<th class='ui-table-priority-" + (i + 1) + " ui-table-cell-visible'>" + (i + 1) + "</th>";
+      elements += "<div data-role='collapsible'>";
+      elements += "<h3>" + todo.title + "</h3>"
+      elements += "<ul data-role='listview'>";
       Object.keys(todo).forEach(function (key, index) {
-        elements += "<th class='ui-table-priority-" + (index + 2) + " ui-table-cell-visible'>" + todo[key] + "</th>";
+        if (key != "title") {
+          elements += "<li>" + todo[key] + "</li>";
+        }
       });
-      elements += "</tr>";
+      elements += "</ul>";
+      elements += "</div>"
     }
+    elements += "</ul>";
 
     // append to table
-    tableNode.find("tbody").html(elements);
+    tableNode.html(elements);
+    //$("#history_todo_wrap").listview("refresh");
+
   }
 
 }

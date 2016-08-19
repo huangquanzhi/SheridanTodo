@@ -12,7 +12,7 @@ $("#home_category_add").on("tap", function () {
     input.val("");
     // add category ( value, callback)
     addCategory(value);
-    loadCategory(config.form.category);
+    loadCategory(home_getCategory());
   } else {
     validationError("#home_category_input");
     notificationMessage("Category name required!");
@@ -64,6 +64,9 @@ $("#home_addTodo").on("tap", function () {
 
 $("#home_popup_maps_button").on("tap", function () {
   if (navigator.geolocation) {
+    var mapNode = $("#popup_googleMap");
+    var height = $(window).height();;
+    mapNode.css({width: height * 0.45, height: height * 0.8});
     navigator.geolocation.getCurrentPosition(function (position) {
       initMap(position.coords.latitude, position.coords.longitude, true);
     })
